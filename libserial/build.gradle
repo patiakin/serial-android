@@ -2,8 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 30
-    // Choose your Build Tool
-    buildToolsVersion '29.0.3'
 
     //useDeprecatedNdk true
 
@@ -20,7 +18,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
