@@ -47,6 +47,10 @@ public class Serial implements Closeable {
      */
     public static final int BAUDRATE_14400 = 14400;
     /**
+     * Baudrate 19200 bits/s.
+     */
+    public static final int BAUDRATE_19200 = 19200;
+    /**
      * Baudrate 28800 bits/s.
      */
     public static final int BAUDRATE_28800 = 28800;
