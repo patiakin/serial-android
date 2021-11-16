@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 apply plugin: 'git-version-plugin'
 
 android {
@@ -55,6 +56,21 @@ android {
     externalNativeBuild {
         cmake {
             path file('src/main/cpp/CMakeLists.txt')
+        }
+    }
+}
+
+// This task uploads comlibrary to the local maven repository
+afterEvaluate {
+    publishing {
+        publications {
+            libserial(MavenPublication) {
+                from components.release
+
+                groupId = 'com.fortressgb'
+                version = gitVersionInfo.versionName
+                artifactId = project.name
+            }
         }
     }
 }
