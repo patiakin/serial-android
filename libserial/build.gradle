@@ -1,17 +1,11 @@
-apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
-apply plugin: 'git-version-plugin'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+    id 'git-version-plugin'
+}
 
 android {
-    compileSdkVersion 30
-
-    //useDeprecatedNdk true
-
-    /*
-    ndk {
-        moduleName "serial"
-    }
-    */
+    compileSdk 30
 
     sourceSets {
         main {
@@ -20,14 +14,20 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdk 21
+        targetSdk 30
         versionName = gitVersionInfo.versionName
         versionCode = gitVersionInfo.versionCode
 
         buildConfigField "String", "VERSION", "\"${gitVersionInfo.versionName}\""
         buildConfigField "String", "REVISION", "\"${gitVersionInfo.revision}\""
         println("VERSION_NAME = $versionName, VERSION_CODE = $versionCode, REVISION = ${gitVersionInfo.revision}")
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
 
         // Similar to other properties in the defaultConfig block,
         // you can configure the ndk block for each product flavor
@@ -43,7 +43,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             jniDebuggable true
@@ -55,7 +55,8 @@ android {
     }
     externalNativeBuild {
         cmake {
-            path file('src/main/cpp/CMakeLists.txt')
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
         }
     }
 }
@@ -77,7 +78,7 @@ afterEvaluate {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 //apply from: '../gradle-maven-push.gradle'
