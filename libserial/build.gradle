@@ -61,9 +61,15 @@ android {
     }
 }
 
-// This task uploads comlibrary to the local maven repository
 afterEvaluate {
     publishing {
+        repositories {
+            maven {
+                url 'https://fgbtfs.pkgs.visualstudio.com/Android/_packaging/Android-Integration/maven/v1'
+                name 'azure'
+                credentials(PasswordCredentials)
+            }
+        }
         publications {
             libserial(MavenPublication) {
                 from components.release
