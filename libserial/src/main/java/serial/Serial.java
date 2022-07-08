@@ -743,7 +743,7 @@ public class Serial implements Closeable {
                 timeout.read_timeout_constant,
                 timeout.read_timeout_multiplier,
                 timeout.write_timeout_constant,
-                timeout.read_timeout_multiplier
+                timeout.write_timeout_multiplier
         });
     }
 
