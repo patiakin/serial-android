@@ -21,7 +21,7 @@ public final class Log {
      */
     private static final String MESSAGE_TEMPLATE = "[%s]%s";
 
-    private static Object sSyncObject = new Object();
+    private static final Object sSyncObject = new Object();
 
     /**
      * Priority constant for enable all loggings.

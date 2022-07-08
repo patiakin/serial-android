@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.regex.Pattern;
 
 /**
@@ -147,12 +148,12 @@ public class Serial implements Closeable {
 
     static {
         CHARSET_DEFAULT = Charset.defaultCharset();
-        CHARSET_UTF8 = Charset.forName("UTF-8");
-        CHARSET_ISO_8859_1 = Charset.forName("ISO-8859-1");
-        CHARSET_US_ASCII = Charset.forName("US-ASCII");
-        CHARSET_UTF16 = Charset.forName("UTF-16");
-        CHARSET_UTF16LE = Charset.forName("UTF-16LE");
-        CHARSET_UTF16BE = Charset.forName("UTF-16BE");
+        CHARSET_UTF8 = StandardCharsets.UTF_8;
+        CHARSET_ISO_8859_1 = StandardCharsets.ISO_8859_1;
+        CHARSET_US_ASCII = StandardCharsets.US_ASCII;
+        CHARSET_UTF16 = StandardCharsets.UTF_16;
+        CHARSET_UTF16LE = StandardCharsets.UTF_16LE;
+        CHARSET_UTF16BE = StandardCharsets.UTF_16BE;
 
         System.loadLibrary("serial-lib");
     }
@@ -298,7 +299,7 @@ public class Serial implements Closeable {
      * @param timeout A serial::Timeout struct that defines the timeout
      * conditions for the serial port. \see serial::Timeout
      *
-     * @\param bytesize Size of each byte in the serial transmission of data,
+     * @param bytesize Size of each byte in the serial transmission of data,
      * default is eightbits, possible values are: fivebits, sixbits, sevenbits,
      * eightbits
      *
@@ -682,7 +683,7 @@ public class Serial implements Closeable {
      * serial port, which would be something like 'COM1' on Windows and
      * '/dev/ttyS0' on Linux.
      *
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException if Native port is invalid.
      */
     public void setPort (String port) {
         checkValid();
@@ -976,7 +977,7 @@ public class Serial implements Closeable {
      * @return Returns true if one of the lines changed, false if something else
      * occurred.
      *
-     * @throws SerialException
+     * @throws SerialException if native port is not opened.
      */
     public boolean waitForChange () {
         checkOpened();

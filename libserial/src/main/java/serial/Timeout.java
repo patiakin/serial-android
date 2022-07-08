@@ -23,7 +23,7 @@ public final class Timeout {
      * timeout occurs after a call to read or write is made.
      * @return Timeout struct that represents this simple timeout provided.
      */
-    public static final Timeout simpleTimeout(int timeout) {
+    public static Timeout simpleTimeout(int timeout) {
         return new Timeout(MAX, timeout, 0, timeout, 0);
     }
 
@@ -60,7 +60,6 @@ public final class Timeout {
      *
      * @param timeout A long that defines the time in milliseconds until a
      * timeout occurs after a call to read or write is made.
-     * @return Timeout struct that represents this simple timeout provided.
      */
     public Timeout(int timeout) {
         this(MAX, timeout, 0, timeout, 0);
