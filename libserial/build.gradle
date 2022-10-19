@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     sourceSets {
         main {
@@ -15,6 +15,7 @@ android {
 
     defaultConfig {
         minSdk 21
+        //noinspection ExpiredTargetSdkVersion
         targetSdk 29
         versionName = gitVersionInfo.versionName
         versionCode = gitVersionInfo.versionCode

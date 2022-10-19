@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     defaultConfig {
         applicationId "serial.android.sample"
         minSdk 21
+        //noinspection ExpiredTargetSdkVersion
         targetSdk 29
         versionCode 1
         versionName "1.0"
