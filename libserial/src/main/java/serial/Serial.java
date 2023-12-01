@@ -95,6 +95,38 @@ public class Serial implements Closeable {
      * Baudrate 921600 bits/s.
      */
     public static final int BAUDRATE_921600 = 921600;
+    /**
+     * Baudrate 1000000 bits/s.
+     */
+    public static final int BAUDRATE_1000000 = 1000000;
+    /**
+     * Baudrate 1152000 bits/s.
+     */
+    public static final int BAUDRATE_1152000 = 1152000;
+    /**
+     * Baudrate 1500000 bits/s.
+     */
+    public static final int BAUDRATE_1500000 = 1500000;
+    /**
+     * Baudrate 2000000 bits/s.
+     */
+    public static final int BAUDRATE_2000000 = 2000000;
+    /**
+     * Baudrate 2500000 bits/s.
+     */
+    public static final int BAUDRATE_2500000 = 2500000;
+    /**
+     * Baudrate 3000000 bits/s.
+     */
+    public static final int BAUDRATE_3000000 = 3000000;
+    /**
+     * Baudrate 3500000 bits/s.
+     */
+    public static final int BAUDRATE_3500000 = 3500000;
+    /**
+     * Baudrate 4000000 bits/s.
+     */
+    public static final int BAUDRATE_4000000 = 4000000;
 
     /**
      * End-of-line: line-feed (\n). This is the default.
