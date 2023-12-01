@@ -3,7 +3,7 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 3.22.1)
 
 # Declares and names the project.
 
@@ -21,23 +21,23 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        ../jni/jni_main.cc
-		../jni/jni_utility.cc
-		../jni/serial_jni.cc
-		../jni/libs/nativehelper/JNIHelp.cpp
-		../jni/libs/nativehelper/JniConstants.cpp
-		../jni/libs/nativehelper/JniInvocation.cpp
-		../jni/libs/nativehelper/toStringArray.cpp
-		../jni/libs/serialport/list_ports_linux.cc
-		../jni/libs/serialport/glob.c
-		../jni/libs/serialport/serial.cc
-		../jni/libs/serialport/serial_unix.cc)
-		
+        jni_main.cc
+        jni_utility.cc
+        serial_jni.cc
+        libs/nativehelper/JNIHelp.cpp
+        libs/nativehelper/JniConstants.cpp
+        libs/nativehelper/JniInvocation.cpp
+        libs/nativehelper/toStringArray.cpp
+        libs/serialport/list_ports_linux.cc
+        libs/serialport/glob.c
+        libs/serialport/serial.cc
+        libs/serialport/serial_unix.cc)
+
 include_directories(
-		../jni/include/
-		../jni/libs/nativehelper/include/
-		../jni/libs/nativehelper/include/nativehelper/
-		../jni/libs/serialport/include/)
+        include/
+        libs/nativehelper/include/
+        libs/nativehelper/include/nativehelper/
+        libs/serialport/include/)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
