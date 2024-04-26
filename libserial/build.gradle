@@ -5,19 +5,17 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
     namespace "serial.android"
 
     defaultConfig {
         minSdk 21
         //noinspection ExpiredTargetSdkVersion
         targetSdk 29
-        versionName = gitVersionInfo.versionName
-        versionCode = gitVersionInfo.versionCode
 
         buildConfigField "String", "VERSION", "\"${gitVersionInfo.versionName}\""
         buildConfigField "String", "REVISION", "\"${gitVersionInfo.revision}\""
-        println("VERSION_NAME = $versionName, VERSION_CODE = $versionCode, REVISION = ${gitVersionInfo.revision}")
+        println("VERSION_NAME = ${gitVersionInfo.versionName}, VERSION_CODE = ${gitVersionInfo.versionCode}, REVISION = ${gitVersionInfo.revision}")
 
         // Similar to other properties in the defaultConfig block,
         // you can configure the ndk block for each product flavor
@@ -51,6 +49,9 @@ android {
             path file("src/main/cpp/CMakeLists.txt")
             version "3.22.1"
         }
+    }
+    buildFeatures {
+        buildConfig true
     }
 }
 
